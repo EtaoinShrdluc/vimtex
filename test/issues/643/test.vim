@@ -4,7 +4,7 @@ let &rtp .= ',~/.vim/bundle/vimtex/after'
 filetype plugin indent on
 syntax enable
 
-edit test.tex
+silent edit test.tex
 profile start test.log
 profile func *
 profile file *
