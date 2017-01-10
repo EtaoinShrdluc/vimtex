@@ -80,9 +80,8 @@ endfunction
 
 " }}}1
 function! s:is_verbatim(line, lnum) " {{{1
-  let l:env = a:line !~# '\v\\%(begin|end)\{%(verbatim|lstlisting|minted)'
-  let l:syn = synIDattr(synID(a:lnum, 1, 1), 'name') ==# 'texZone'
-  return l:env && l:syn
+  return a:line !~# '\v\\%(begin|end)\{%(verbatim|lstlisting|minted)'
+        \ && vimtex#env#is_inside('%\(verbatim\|lstlisting\|minted)')
 endfunction
 
 " }}}1
